@@ -25,4 +25,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: sudo npm ci
-    - run: sudo pm2 restart 0
+    - run: sudo npm start
