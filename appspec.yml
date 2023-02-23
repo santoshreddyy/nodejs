@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
   - source: ./server.js
-    destination: /home/ubuntu/your-app-name
+    destination: /home/ubuntu/nodejs
   - source: ./package.json
-    destination: /home/ubuntu/your-app-name
+    destination: /home/ubuntu/nodejs
 hooks:
   AfterInstall:
     - location: scripts/AfterInstall.sh
