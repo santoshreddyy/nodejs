@@ -1,18 +1,18 @@
 version: 0.0
-os: linux 
+os: linux
 files:
-  - source: /
-    destination: /var/www/html/test_nodejs_application
+  - source: ./server.js
+    destination: /home/ubuntu/your-app-name
+  - source: ./package.json
+    destination: /home/ubuntu/your-app-name
 hooks:
-  ApplicationStop:
-    - location: scripts/application_stop.sh
-      timeout: 300
-      runas: ubuntu
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 300
-      runas: ubuntu
-  ApplicationStart:
-    - location: scripts/application_start.sh
-      timeout: 300
-      runas: ubuntu 
+  AfterInstall:
+    - location: scripts/AfterInstall.sh
+      timeout: 1000
+permissions:
+  - object: /home/ubuntu
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - directory
+      - file
