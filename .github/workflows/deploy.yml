@@ -1,0 +1,23 @@
+name: deploy-to-dev-droplet
+on: 
+  push:
+    branches:
+      - mast
+jobs:
+  deploy-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy backend
+        uses: appleboy/ssh-action@master
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+          host: ${{ secrets.HOST_DEV }}
+          username: ${{ secrets.USERNAME }}
+          script: |
+            cd /home/ubuntu/node
+            sudo git stash
+            sudo GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend" git pull origin master
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
+            npm install
+            pm2 restart 0
