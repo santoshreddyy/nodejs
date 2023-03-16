@@ -16,7 +16,7 @@ jobs:
           script: |
             cd /home/ubuntu/nodeJS
             sudo git stash
-            sudo GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_backend" git pull origin master
+            sudo GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_pub" git pull origin master
             export NVM_DIR=~/.nvm
             source ~/.nvm/nvm.sh
             npm install
