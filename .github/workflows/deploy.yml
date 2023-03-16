@@ -2,7 +2,7 @@ name: deploy-to-dev-droplet
 on: 
   push:
     branches:
-      - mast
+      - master
 jobs:
   deploy-backend:
     runs-on: ubuntu-latest
