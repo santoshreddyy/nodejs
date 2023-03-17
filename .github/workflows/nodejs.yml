@@ -26,5 +26,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: sudo npm ci
-    - run: sudo pm2 start --name nodejs-qa npm -- run start
+    - run: sudo pm2 restart nodejs-qa
     
